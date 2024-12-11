@@ -13,4 +13,4 @@ typedef struct {
 	char lastname[20];
 	int group_id;
 	int course;
-} student_type; // uzcep type student_type
+} 	student_type; // uzcep type student_type
