@@ -1,9 +1,17 @@
 CC = gcc
 BIN = student_db
+SOURCES = file.c inout.c main.c
+OBJECTS = $(SOURCES:.c=.o)
 
-student_db: main.c inout.c common.h file.c
-	$(CC) main.c inout.c file.c -o $@
+default: $(BIN)
+
+$(BIN): common.h $(OBJECTS)
+	$(CC) $(OBJECTS) -o $@
 
 clean:
-	rm -f *.o student_db data.bin
+	rm $(BIN) $(OBJECTS)
 
+help:
+	@echo "Please run make $(BIN) or just make"
+
+.PHONY: help clean default
